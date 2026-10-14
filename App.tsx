@@ -1,45 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { StyleSheet, View, Text, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { WebView } from 'react-native-webview';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#4A90E2" />
+
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Portal Kampus UNLA-Daniel - Fabric WebView</Text>
+      </View>
+
+      <View style={styles.webViewContainer}>
+        <WebView
+          source={{ uri: 'https://www.unla.ac.id/' }}
+          style={styles.flexOne}
+          javaScriptEnabled={true}
+          startInLoadingState={true}
+        />
+      </View>
+    </SafeAreaView>
   );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#F5FCFF' },
+  header: {
+    height: 55,
+    backgroundColor: '#4A90E2',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+  },
+  headerText: { color: '#FFFFFF', fontSize: 18, fontWeight: 'bold' },
+  webViewContainer: { flex: 1 },
+  flexOne: { flex: 1 },
+});
