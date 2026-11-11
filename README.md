@@ -38,7 +38,7 @@ Aplikasi React Native yang mengaktifkan **Fabric / New Architecture** dan menamp
 
 ### Tampilan
 
-<img src="screenshots/tugas3.jpeg" alt="Tampilan Tugas 3" width="300">
+<img src="screenshots/Tugas3.jpeg" alt="Tampilan Tugas 3" width="300">
 
 ### Teknologi
 
