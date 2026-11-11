@@ -1,97 +1,85 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Tugas Mobile: Implementasi WebView
 
-# Getting Started
+Repositori ini berisi dua tugas pemrograman mobile yang sama-sama menampilkan halaman web di dalam aplikasi menggunakan komponen WebView, dengan teknologi yang berbeda.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+| Tugas | Teknologi | Lokasi |
+|-------|-----------|--------|
+| Tugas 2 | MIT App Inventor (komponen WebViewer) | `tugas-2-app-inventor/` |
+| Tugas 3 | React Native CLI, Fabric (New Architecture), `react-native-webview` | root repositori |
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Tugas 2: WebView dengan MIT App Inventor
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Prototipe aplikasi Android yang menampilkan halaman web menggunakan komponen **WebViewer** di MIT App Inventor.
 
-```sh
-# Using npm
-npm start
+### Tampilan
 
-# OR using Yarn
-yarn start
+**Desain di MIT App Inventor (Designer)**
+
+<img src="screenshots/tugas2-2.png" alt="Desain Tugas 2 di MIT App Inventor" width="700">
+
+**Tampilan di HP**
+
+<img src="screenshots/tugas2.jpeg" alt="Tampilan Tugas 2 di HP" width="300">
+
+### Cara membuka proyek
+
+1. Buka [ai2.appinventor.mit.edu](https://ai2.appinventor.mit.edu) dan login dengan akun Google.
+2. Pilih menu **Projects > Import project (.aia) from my computer**.
+3. Pilih file `tugas-2-app-inventor/Daniel_tugas1_mobile.aia`.
+4. Jalankan lewat **Connect > AI Companion** (scan QR dengan aplikasi MIT AI2 Companion di HP), atau **Build > Android App (.apk)**.
+
+---
+
+## Tugas 3: WebView dengan React Native (Fabric)
+
+Aplikasi React Native yang mengaktifkan **Fabric / New Architecture** dan menampilkan halaman web portal kampus UNLA memakai paket `react-native-webview`. Aplikasi memiliki header berjudul "Portal Kampus UNLA-Daniel - Fabric WebView" dan area WebView di bawahnya.
+
+### Tampilan
+
+<img src="screenshots/tugas3.jpeg" alt="Tampilan Tugas 3" width="300">
+
+### Teknologi
+
+- React Native 0.87 (React Native CLI, bukan Expo)
+- TypeScript
+- `react-native-webview`
+- New Architecture (Fabric): `newArchEnabled=true` pada `android/gradle.properties`
+
+### Prasyarat
+
+- Node.js dan npm
+- JDK 17
+- Android SDK (command-line tools atau Android Studio)
+- HP Android dengan USB debugging aktif, atau emulator
+
+### Cara menjalankan
+
+```bash
+git clone https://github.com/danielsetiawan2403/TugasWebViewFabric.git
+cd TugasWebViewFabric
+npm install
+npx react-native run-android
 ```
 
-## Step 2: Build and run your app
+Jika layar HP menampilkan error merah "Unable to load script", jalankan:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+adb reverse tcp:8081 tcp:8081
 ```
 
-### iOS
+lalu reload aplikasi.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Struktur utama
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```
+App.tsx                  # Kode utama aplikasi WebView (Tugas 3)
+android/                 # Proyek native Android
+tugas-2-app-inventor/    # Berkas proyek MIT App Inventor (Tugas 2)
+screenshots/             # Tangkapan layar tampilan aplikasi
 ```
 
-Then, and every time you update your native dependencies, run:
+## Pembuat
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Daniel Setiawan

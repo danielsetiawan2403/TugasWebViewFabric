@@ -6,10 +6,10 @@ import { WebView } from 'react-native-webview';
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#4A90E2" />
+      <StatusBar barStyle="dark-content" />
 
       <View style={styles.header}>
-        <Text style={styles.headerText}>Portal Kampus UNLA-Daniel - Fabric WebView</Text>
+        <Text style={styles.headerText}>Portal Kampus UNLA- Daniel Setiawan - Fabric WebView</Text>
       </View>
 
       <View style={styles.webViewContainer}>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F5FCFF' },
   header: {
     height: 55,
-    backgroundColor: '#4A90E2',
+    backgroundColor: '#13f089',
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 4,
